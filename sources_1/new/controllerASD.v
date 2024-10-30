@@ -3,7 +3,7 @@
 module controllerASD(
     input clk, reset, start,
     input Zi, Zcsd,
-    output reg Load, enable, reCsd, done, enCnt
+    output reg Load, enable, reCsd, done, enCnt, loadCnt
 );
 
     reg [3:0] state;
@@ -47,6 +47,7 @@ module controllerASD(
     // Control Outputs
     always @(*) begin
         Load = (state == 4'h2) ? 1'b1 : 1'b0;
+        loadCnt = (state == 4'h2) ? 1'b1 : 1'b0;
         enable = (state == 4'h7) ? 1'b1 : 1'b0;
         reCsd = (state == 4'h4) ? 1'b1 : 1'b0;
         done = (state == 4'h8) ? 1'b1 : 1'b0;   

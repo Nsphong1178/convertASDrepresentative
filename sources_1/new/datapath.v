@@ -5,12 +5,12 @@ module datapath(
     input weCsd, reCsd,
     input [7:0] dataIn,
     input [3:0] address,
-    input Load, enable, enCnt,
+    input Load, enable, enCnt, loadCnt,
     output [7:0] dataOut,
     output Zi, Zcsd
 );
 
-    wire [3:0] add, i;
+    wire [3:0] add, i, cnt;
     assign add = (start == 0) ? address : i;
     // Instantiate counter
     counter cnt (
@@ -19,6 +19,14 @@ module datapath(
         .enable(enable),
         .Load(Load),
         .count(i)
+    );
+
+    counter counterCnt(
+        .clk(clk),
+        .reset(reset),
+        .enable(enCnt),
+        .Load(loadCnt),
+        .count(cnt)
     );
 
     // Instantiate memory
@@ -32,7 +40,16 @@ module datapath(
         .address(add)
     );
 
+    // memory k(
+    //     .clk(clk),
+    //     .reset(reset),
+    //     .we(),
+    //     .re(),
+    //     .dataIn(),
+    //     .dataOut(),
+    //     .address()
 
+    // );
 
     // Gán giá trị cho Zi và Zcsd
     assign Zi = (i < 4'hF);
