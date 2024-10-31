@@ -73,7 +73,7 @@ module simulation;
         #10;
         weCsd = 0;
 
-        dataIn = 8'h1;
+        dataIn = 8'h0;
         address = 4'h1;
         weCsd = 1;
         #10;
@@ -90,6 +90,31 @@ module simulation;
         weCsd = 1;
         #10;
         weCsd = 0;
+
+        dataIn = 8'h0;
+        address = 4'h4;
+        weCsd = 1;
+        #10;
+        weCsd = 0;
+
+        dataIn = 8'h1;
+        address = 4'h5;
+        weCsd = 1;
+        #10;
+        weCsd = 0;
+
+        dataIn = 8'h0;
+        address = 4'h6;
+        weCsd = 1;
+        #10;
+        weCsd = 0;
+        
+        dataIn = 8'h1;
+        address = 4'h7;
+        weCsd = 1;
+        #10;
+        weCsd = 0;
+
 
         // Khởi động bộ điều khiển
         start = 1;
