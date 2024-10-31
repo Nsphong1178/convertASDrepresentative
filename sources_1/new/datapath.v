@@ -10,10 +10,10 @@ module datapath(
     output Zi, Zcsd
 );
 
-    wire [3:0] add, i, cnt;
+    wire [3:0] add, i, cnti;
     assign add = (start == 0) ? address : i;
     // Instantiate counter
-    counter cnt (
+    counter cnt(
         .clk(clk),
         .reset(reset),
         .enable(enable),
@@ -26,7 +26,7 @@ module datapath(
         .reset(reset),
         .enable(enCnt),
         .Load(loadCnt),
-        .count(cnt)
+        .count(cnti)
     );
 
     // Instantiate memory

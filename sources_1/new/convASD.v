@@ -2,7 +2,7 @@
 
 module convASD(
     input clk, reset, start,
-    input weCsd, enable, enCnt, Load, reCsd,
+    input weCsd, enable, enCnt, Load, reCsd, loadCnt, 
     input [3:0] address,
     input [7:0] dataIn,
     output [7:0] dataOut,
@@ -21,6 +21,7 @@ module convASD(
         .Load(Load),
         .enable(enable),
         .enCnt(enCnt),
+        .loadCnt(loadCnt),
         .dataOut(dataOut),
         .Zi(Zi),
         .address(address),
@@ -37,6 +38,7 @@ module convASD(
         .Load(Load),
         .enable(enable),
         .enCnt(enCnt),
+        .loadCnt(loadCnt),
         .reCsd(reCsd),
         .done(done)
     );

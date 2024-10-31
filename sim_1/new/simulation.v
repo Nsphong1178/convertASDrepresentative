@@ -18,6 +18,7 @@ module simulation;
     wire reCsd;
     wire enable;
     wire enCnt;
+    wire loadCnt;
 
     // Instantiate the convASD module
     convASD uut (
@@ -28,6 +29,7 @@ module simulation;
         .enable(enable),
         .enCnt(enCnt),
         .Load(Load),
+        .loadCnt(loadCnt),
         .address(address),
         .dataIn(dataIn),
         .dataOut(dataOut),
