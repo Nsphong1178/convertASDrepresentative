@@ -11,14 +11,18 @@ module simulation;
 
     // Outputs
     wire [7:0] dataOut;
+    wire [3:0] dataOutK;
     wire Zi;
     wire Zcsd;
+    wire Zcnt;
     wire done;
     wire Load;
     wire reCsd;
     wire enable;
     wire enCnt;
     wire loadCnt;
+    wire reK;
+    wire weK;
 
     // Instantiate the convASD module
     convASD uut (
@@ -33,8 +37,12 @@ module simulation;
         .address(address),
         .dataIn(dataIn),
         .dataOut(dataOut),
+        .dataOutK(dataOutK),
         .Zi(Zi),
         .Zcsd(Zcsd),
+        .Zcnt(Zcnt),
+        .weK(weK),
+        .reK(reK),
         .reCsd(reCsd),
         .done(done)
     );
