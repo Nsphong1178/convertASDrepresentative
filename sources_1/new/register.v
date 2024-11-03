@@ -23,12 +23,12 @@
 module register(
    input clk, reset,
    input enReg,
-   input [7:0] data,
-   output reg [7:0] q 
+   input [3:0] data,
+   output reg [3:0] q 
    );
    always @(posedge clk or posedge reset) begin
        if(reset)
-           q <= 8'h0;
+           q <= 4'h0;
        else if (enReg)
            q <= data;
    end

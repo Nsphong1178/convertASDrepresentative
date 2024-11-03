@@ -56,6 +56,7 @@ module controllerASD(
     always @(*) begin
         Load = (state == 4'h2) ? 1'b1 : 1'b0;
         loadCnt = (state == 4'h2) ? 1'b1 : 1'b0;
+     //   enable = (state == 4'hA || state == 4'h2) ? 1'b1 : 1'b0; // enable counter
         enable = (state == 4'hA) ? 1'b1 : 1'b0; // enable counter
         reCsd = (state == 4'h4) ? 1'b1 : 1'b0;
         done = (state == 4'hB) ? 1'b1 : 1'b0;   

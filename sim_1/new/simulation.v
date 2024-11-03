@@ -73,7 +73,7 @@ module simulation;
         #10;
         weCsd = 0;
 
-        dataIn = 8'h0;
+        dataIn = 8'h1;
         address = 4'h1;
         weCsd = 1;
         #10;

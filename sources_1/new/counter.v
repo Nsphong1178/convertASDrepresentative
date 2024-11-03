@@ -39,7 +39,7 @@ module counter #(
             pre_count <= 0;  // Reset count to 0
         end
         else if (Load) begin
-            pre_count <= 3'h0;  // Load Din into count
+            pre_count <= 4'h0;  // Load Din into count
         end
         else if (enable) begin
             pre_count <= pre_count + 1;  // Increment count when enabled
