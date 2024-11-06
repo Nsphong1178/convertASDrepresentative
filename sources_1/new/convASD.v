@@ -2,12 +2,14 @@
 
 module convASD(
     input clk, reset, start,
-    input weCsd, enable, enCnt, Load, reCsd, loadCnt, weK, reK,
+    input weCsd, enable, enCnt, Load, reCsd, loadCnt, weK, reK, Zk, ZCsdK,
     input [3:0] address,
     input [7:0] dataIn,
     output [3:0] dataOutK,
     output [7:0] dataOut,
     output Zi, Zcsd, Zcnt, 
+    output [3:0] sel_i,
+    output kSel, selSaveK,
     output done
 );
 
@@ -30,7 +32,12 @@ module convASD(
         .dataOutK(dataOutK),
         .Zi(Zi),
         .Zcsd(Zcsd),
-        .Zcnt(Zcnt)
+        .Zcnt(Zcnt),
+        .sel_i(sel_i),
+        .kSel(kSel),
+        .selSaveK(selSaveK),
+        .Zk(Zk),
+        .ZCsdK(ZCsdK)
     );
 
     // Instantiate controller
@@ -46,9 +53,15 @@ controllerASD ctrl (
     .enCnt(enCnt),
     .loadCnt(loadCnt),
     .reCsd(reCsd),
+  //  .weCsd(weCsd),
     .done(done),
     .reK(reK),            
-    .weK(weK)
+    .weK(weK), 
+    .sel_i(sel_i),
+    .kSel(kSel),
+    .selSaveK(selSaveK),
+    .Zk(Zk),
+    .ZCsdK(ZCsdK)
 );
 
 

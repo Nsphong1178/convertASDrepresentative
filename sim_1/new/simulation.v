@@ -8,6 +8,8 @@ module simulation;
     reg weCsd;
     reg [3:0] address;
     reg [7:0] dataIn;
+    reg Zk;
+    reg ZCsdK;
 
     // Outputs
     wire [7:0] dataOut;
@@ -23,6 +25,9 @@ module simulation;
     wire loadCnt;
     wire reK;
     wire weK;
+    wire [3:0] sel_i;
+    wire kSel;
+    wire selSaveK;
 
     // Instantiate the convASD module
     convASD uut (
@@ -44,7 +49,12 @@ module simulation;
         .weK(weK),
         .reK(reK),
         .reCsd(reCsd),
-        .done(done)
+        .done(done),
+        .sel_i(sel_i),       // Thêm kết nối sel_i
+        .kSel(kSel),         // Thêm kết nối kSel
+        .selSaveK(selSaveK), // Thêm kết nối selSaveK
+        .Zk(Zk),             // Thêm kết nối Zk
+        .ZCsdK(ZCsdK)        // Thêm kết nối ZCsdK
     );
 
     // Clock generation
@@ -73,7 +83,7 @@ module simulation;
         #10;
         weCsd = 0;
 
-        dataIn = 8'h1;
+        dataIn = 8'h0;
         address = 4'h1;
         weCsd = 1;
         #10;
@@ -85,7 +95,7 @@ module simulation;
         #10;
         weCsd = 0;
         
-        dataIn = 8'h1;
+        dataIn = 8'h0;
         address = 4'h3;
         weCsd = 1;
         #10;
@@ -109,12 +119,59 @@ module simulation;
         #10;
         weCsd = 0;
         
-        dataIn = 8'h1;
+        dataIn = 8'h0;
         address = 4'h7;
         weCsd = 1;
         #10;
         weCsd = 0;
 
+        dataIn = 8'h0;
+        address = 4'h8;
+        weCsd = 1;
+        #10;
+        weCsd = 0;
+
+        dataIn = 8'h1;
+        address = 4'h9;
+        weCsd = 1;
+        #10;
+        weCsd = 0;
+
+        dataIn = 8'h0;
+        address = 4'hA;
+        weCsd = 1;
+        #10;
+        weCsd = 0;
+        
+        dataIn = 8'h0;
+        address = 4'hB;
+        weCsd = 1;
+        #10;
+        weCsd = 0;
+
+        dataIn = 8'h0;
+        address = 4'hC;
+        weCsd = 1;
+        #10;
+        weCsd = 0;
+
+        dataIn = 8'h0;
+        address = 4'hD;
+        weCsd = 1;
+        #10;
+        weCsd = 0;
+
+        dataIn = 8'h0;
+        address = 4'hE;
+        weCsd = 1;
+        #10;
+        weCsd = 0;
+        
+        dataIn = 8'h1;
+        address = 4'hF;
+        weCsd = 1;
+        #10;
+        weCsd = 0;
 
         // Khởi động bộ điều khiển
         start = 1;
